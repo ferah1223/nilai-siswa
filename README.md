@@ -72,15 +72,42 @@ Lulus kalau ≥ 70
 
 **Prasyarat:** Node.js ≥ 18, Python ≥ 3.10
 
-### 1. Clone
+### Windows
 
+**1. Clone**
 ```bash
 git clone https://github.com/ferah1223/nilai-siswa.git
 cd nilai-siswa
 ```
 
-### 2. Backend
+**2. Backend** (buka terminal baru)
+```bash
+cd backend
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+python seed.py
+python -m uvicorn main:app --reload --port 8000
+```
 
+**3. Frontend** (terminal baru lagi)
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+**4. Buka browser** → `http://localhost:3000`
+
+### Linux / macOS
+
+**1. Clone**
+```bash
+git clone https://github.com/ferah1223/nilai-siswa.git
+cd nilai-siswa
+```
+
+**2. Backend**
 ```bash
 cd backend
 python3 -m venv venv
@@ -90,20 +117,16 @@ python3 seed.py
 python3 -m uvicorn main:app --reload --port 8000
 ```
 
-Backend jalan di `http://localhost:8000`
-Swagger docs di `http://localhost:8000/docs`
-
-### 3. Frontend
-
+**3. Frontend** (terminal baru)
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-Buka `http://localhost:3000`
+**4. Buka browser** → `http://localhost:3000`
 
-### 4. Login
+### Login
 
 | Role | Username | Password |
 |------|----------|----------|
@@ -111,6 +134,9 @@ Buka `http://localhost:3000`
 | Guru | `guru_mtk` | `guru123` |
 | Guru | `guru_bindo` | `guru123` |
 | Siswa | `siswa_001` - `siswa_010` | `siswa123` |
+
+Backend jalan di `http://localhost:8000`
+Swagger docs di `http://localhost:8000/docs`
 
 ## Struktur Project
 
@@ -200,6 +226,12 @@ Reset database:
 ```bash
 rm backend/nilai_siswa.db
 cd backend && python3 seed.py
+```
+
+Windows:
+```bash
+del backend\nilai_siswa.db
+cd backend && python seed.py
 ```
 
 ## Konsep Pemrograman
